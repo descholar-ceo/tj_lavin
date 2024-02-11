@@ -25,7 +25,7 @@ module TJLavin
 
             message = JSON.parse(msg.body_io.to_s)
 
-            job_run = JobRun.new(message["class"].as_s)
+            job_run = JobRun.new(message.class)
             job_run.config = array_to_hash.call(message["args"].as_a.map(&.as_s))
             job_instance = job_run.run
 
